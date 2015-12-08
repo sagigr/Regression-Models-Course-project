@@ -1,7 +1,7 @@
 
 ## Regression Models: Course Project
 
-# Is the type of transmission affects the fuel consumption?
+# Does the type of transmission affects the fuel consumption?
 
 Sagi Greenstine
 
