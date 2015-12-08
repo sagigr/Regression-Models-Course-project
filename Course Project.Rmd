@@ -1,3 +1,4 @@
+
 ## Regression Models: Course Project
 
 # 
@@ -7,6 +8,30 @@ Sagi Greenstine
 ## Executive Summary
 
 This report refers to two following questions:  
-1. “Is an automatic or manual transmission better for MPG”  
-2. "Quantify the MPG difference between automatic and manual transmissions"  
-3. 
+1. Is an automatic or manual transmission better for MPG?  
+2. Quantify the MPG difference between automatic and manual transmissions?  
+
+
+## The ```mtcars``` Dataset
+
+The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+
+
+Source: Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.
+
+## Simulations
+
+A data frame with 32 observations on 11 variables.  
+
+[, 1]	mpg	Miles/(US) gallon  
+[, 2]	cyl	Number of cylinders  
+[, 3]	disp	Displacement (cu.in.)  
+[, 4]	hp	Gross horsepower  
+[, 5]	drat	Rear axle ratio  
+[, 6]	wt	Weight (lb/1000)  
+[, 7]	qsec	1/4 mile time  
+[, 8]	vs	V/S  
+[, 9]	am	Transmission (0 = automatic, 1 = manual)  
+[,10]	gear	Number of forward gears  
+[,11]	carb	Number of carburetors  
