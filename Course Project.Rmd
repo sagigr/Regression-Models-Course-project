@@ -7,9 +7,9 @@ Sagi Greenstine
 
 ## Executive Summary
 
-This report refers to two following questions:  
+This report is based on the ```mtcars``` dataset data and refers to two following questions:  
 1. Is an automatic or manual transmission better for MPG?  
-2. Quantify the MPG difference between automatic and manual transmissions?  
+2. Quantify the MPG difference between automatic and manual transmissions.  
 
 Brief. 
 Roughly the equivalent of 2 pages or less for the main text. 
@@ -28,12 +28,9 @@ Did the student quantify the uncertainty in their conclusions and/or perform an 
 ## The ```mtcars``` Dataset
 
 The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
-
-
-
 Source: Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.
 
-## Simulations
+## 
 
 A data frame with 32 observations on 11 variables.  
 
