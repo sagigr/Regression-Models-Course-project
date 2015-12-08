@@ -24,6 +24,8 @@ Did the student answer the questions of interest or detail why the question(s) i
 Did the student do a residual plot and some diagnostics?
 Did the student quantify the uncertainty in their conclusions and/or perform an inference correctly?
 
+## Data Analysis
+
 
 ## The ```mtcars``` Dataset
 
