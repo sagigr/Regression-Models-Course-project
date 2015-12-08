@@ -5,3 +5,7 @@
 Sagi Greenstine
 
 ## Executive Summary
+
+This report refers to two following questions:
+1. “Is an automatic or manual transmission better for MPG”
+2. "Quantify the MPG difference between automatic and manual transmissions"
