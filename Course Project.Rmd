@@ -3,7 +3,7 @@
 
 # Does the type of transmission affects the fuel consumption?
 
-Sagi Greenstine
+#### Sagi Greenstine
 
 ## Executive Summary
 
@@ -26,14 +26,20 @@ Did the student quantify the uncertainty in their conclusions and/or perform an 
 
 ## Data Analysis
 
+### Method
 
-## The ```mtcars``` Dataset
+### The ```mtcars``` Dataset
 
 The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
 Source: Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.
 
+* Simple Linear Regression - lm(mpg ~ am, data = mtcars)
+* Multiple Regression - lm(mpg ~ wt + qsec + am, data=mtcars)
 
- 
+### Results
+
+## Conclusions
+
 ## Appendix
 
 A data frame with 32 observations on 11 variables.  
