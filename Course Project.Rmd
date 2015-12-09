@@ -17,14 +17,16 @@ Supporting figures in an appendix can be included up to 5 total pages including 
 The appendix can only include figures.
 Include a first paragraph executive summary.
 
-Did the student interpret the coefficients correctly?  
-Did the student do some exploratory data analyses?  
-Did the student fit multiple models and detail their strategy for model selection?  
-Did the student answer the questions of interest or detail why the question(s) is (are) not answerable?  
-Did the student do a residual plot and some diagnostics?  
-Did the student quantify the uncertainty in their conclusions and/or perform an inference correctly?  
+Did the student interpret the coefficients correctly?
+Did the student do some exploratory data analyses?
+Did the student fit multiple models and detail their strategy for model selection?
+Did the student answer the questions of interest or detail why the question(s) is (are) not answerable?
+Did the student do a residual plot and some diagnostics?
+Did the student quantify the uncertainty in their conclusions and/or perform an inference correctly?
 
 ## Data Analysis
+
+Please see the exploratory analysis of the dataset in Appendix.
 
 ### Method
 
