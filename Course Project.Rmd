@@ -42,6 +42,8 @@ Source: Henderson and Velleman (1981), Building multiple regression models inter
 
 ## Appendix
 
+### Exploratory Data Analysis
+
 A data frame with 32 observations on 11 variables.  
 
 [, 1]	mpg	Miles/(US) gallon  
