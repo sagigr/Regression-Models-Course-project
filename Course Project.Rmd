@@ -7,9 +7,14 @@
 
 ## Executive Summary
 
-This report is based on the ```mtcars``` dataset data and refers to two following questions:  
+The Motor Trend magazine staff is interested in exploring the relationship between a **set of variables** at a data set of a collection of cars and **miles per gallon (MPG) (outcome)**.  
+They are especially interested in the answers to the following questions:
+
 1. Is an automatic or manual transmission better for MPG?  
-2. Quantify the MPG difference between automatic and manual transmissions.  
+2. How significant MPG difference between automatic and manual transmissions?
+
+This report is based on the ```mtcars``` dataset and after the following data analysis, I can do these conclusions:
+
 
 Brief. 
 Roughly the equivalent of 2 pages or less for the main text. 
@@ -26,14 +31,13 @@ Did the student quantify the uncertainty in their conclusions and/or perform an 
 
 ## Data Analysis
 
+### Exploratory Data Analysis
+
+The ```mtcars``` Dataset is a data frame with 32 observations on 11 variables.  
+1. First of all, 
 Please see the exploratory analysis of the dataset in Appendix.
 
 ### Method
-
-### The ```mtcars``` Dataset
-
-The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
-Source: Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.
 
 * Simple Linear Regression - lm(mpg ~ am, data = mtcars)
 * Multiple Regression - lm(mpg ~ wt + qsec + am, data=mtcars)
@@ -46,6 +50,9 @@ Source: Henderson and Velleman (1981), Building multiple regression models inter
 
 ### Exploratory Data Analysis
 
+#### The ```mtcars``` dataset
+The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+Source: Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.  
 A data frame with 32 observations on 11 variables.  
 
 [, 1]	mpg	Miles/(US) gallon  
@@ -59,3 +66,18 @@ A data frame with 32 observations on 11 variables.
 [, 9]	am	Transmission (0 = automatic, 1 = manual)  
 [,10]	gear	Number of forward gears  
 [,11]	carb	Number of carburetors  
+
+**Plot 1 - The Scatterplot Matrix for ```mtcars``` Dataset Variables**
+
+I'll build the scatterplot by using the ```gclus``` package:
+
+```{r applot1, echo=FALSE}
+library(gclus)
+data <- mtcars[c(1:11)] 
+datarows <- abs(cor(data))
+datacols <- dmat.color(datarows)
+dorder <- order.single(datarows) 
+cpairs(data, dorder, panel.colors=datacols, gap=.5, main="mtcars Variables Correlations" )
+```
+We can see that more strong correlations are between the variables 
+
