@@ -67,11 +67,11 @@ A data frame with 32 observations on 11 variables.
 [,10]	gear	Number of forward gears  
 [,11]	carb	Number of carburetors  
 
-**Plot 1 - The Scatterplot Matrix for ```mtcars``` Dataset Variables**
+**Plot 1: The Scatterplot Matrix for ```mtcars``` Dataset Variables**
 
 I'll build the scatterplot by using the ```gclus``` package:
 
-```{r applot1, echo=FALSE}
+```{r applot1, echo=FALSE, message=FALSE}
 library(gclus)
 data <- mtcars[c(1:11)] 
 datarows <- abs(cor(data))
@@ -79,5 +79,12 @@ datacols <- dmat.color(datarows)
 dorder <- order.single(datarows) 
 cpairs(data, dorder, panel.colors=datacols, gap=.5, main="mtcars Variables Correlations" )
 ```
-We can see that more strong correlations are between the variables 
+
+We can see that more strong correlations are between the variables **hp, cyl, disp, wt, mpg**.
+
+**Plot 2: The Boxplot** 
+
+```{r applot2, echo=FALSE, message=FALSE}
+boxplot(mpg ~ am, data = mtcars, col = (c("red","blue")), ylab = "Miles Per Gallon", xlab = "Transmission Type")
+```
 
