@@ -33,11 +33,14 @@ Did the student quantify the uncertainty in their conclusions and/or perform an 
 
 ### Exploratory Data Analysis
 
-The ```mtcars``` Dataset is a data frame with 32 observations on 11 variables.  
-1. First of all, 
-Please see the exploratory analysis of the dataset in Appendix.
+The ```mtcars``` dataset is a data frame with 32 observations on 11 variables.  
+1. First of all, I built the pairs plot for the ```mtcars``` dataset variables and found that there are strong correlations between the variables: **hp, cyl, disp, wt, mpg** (see **Plot 1** in **Appendix**).  
+2. I built the boxplot of MPG values by transmissions type and found that the MPG of a **manual transmission** significantly higher than the MPG of an **automatic transmission** (see **Plot 2** in **Appendix**).
 
-### Method
+
+### Simple Linear Regression
+
+### Multiple Regression
 
 * Simple Linear Regression - lm(mpg ~ am, data = mtcars)
 * Multiple Regression - lm(mpg ~ wt + qsec + am, data=mtcars)
@@ -53,8 +56,14 @@ Please see the exploratory analysis of the dataset in Appendix.
 #### The ```mtcars``` dataset
 The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
 Source: Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.  
-A data frame with 32 observations on 11 variables.  
 
+There is a some view on the data:
+
+```{r viewdata}
+head(mtcars)
+```
+
+The data frame with 32 observations on 11 variables.  
 [, 1]	mpg	Miles/(US) gallon  
 [, 2]	cyl	Number of cylinders  
 [, 3]	disp	Displacement (cu.in.)  
@@ -66,6 +75,8 @@ A data frame with 32 observations on 11 variables.
 [, 9]	am	Transmission (0 = automatic, 1 = manual)  
 [,10]	gear	Number of forward gears  
 [,11]	carb	Number of carburetors  
+
+Now I'll make some exploratory analysis of the data.
 
 **Plot 1: The Scatterplot Matrix for ```mtcars``` Dataset Variables**
 
@@ -80,11 +91,14 @@ dorder <- order.single(datarows)
 cpairs(data, dorder, panel.colors=datacols, gap=.5, main="mtcars Variables Correlations" )
 ```
 
-We can see that more strong correlations are between the variables **hp, cyl, disp, wt, mpg**.
+We can see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**.
 
-**Plot 2: The Boxplot** 
+**Plot 2: The Boxplot MPG by Transmission Type** 
 
 ```{r applot2, echo=FALSE, message=FALSE}
-boxplot(mpg ~ am, data = mtcars, col = (c("red","blue")), ylab = "Miles Per Gallon", xlab = "Transmission Type")
+mtcars$am <- as.factor(mtcars$am)
+levels(mtcars$am) <- c("Automatic", "Manual")
+boxplot(mpg ~ am, data = mtcars, col = (c("green","red")), ylab = "MPG", xlab = "Transmission Type")
 ```
 
+Here we can see that the MPG of a **manual transmission** significantly higher than the MPG of an **automatic transmission**.
