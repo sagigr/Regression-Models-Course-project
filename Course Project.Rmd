@@ -7,7 +7,7 @@
 
 ## Executive Summary
 
-The Motor Trend magazine staff is interested in exploring the relationship between a **set of variables** at a data set of a collection of cars and **miles per gallon (MPG) (outcome)**.  
+The Motor Trend magazine staff is interested in exploring the relationship between a **set of variables** at a data set of a collection of cars and a **miles per gallon (MPG) (outcome)**.  
 They are especially interested in the answers to the following questions:
 
 1. Is an automatic or manual transmission better for MPG?  
@@ -34,8 +34,8 @@ Did the student quantify the uncertainty in their conclusions and/or perform an 
 ### Exploratory Data Analysis
 
 The ```mtcars``` dataset is a data frame with 32 observations on 11 variables.  
-1. First of all, I built the pairs plot for the ```mtcars``` dataset variables and found that there are strong correlations between the variables: **hp, cyl, disp, wt, mpg** (see **Plot 1** in **Appendix**).  
-2. I built the boxplot of MPG values by transmissions type and found that the MPG of a **manual transmission** significantly higher than the MPG of an **automatic transmission** (see **Plot 2** in **Appendix**).
+1. First of all, I built the pairs plot for the ```mtcars``` dataset variables and found that there are strong correlations between the variables: **hp, cyl, disp, wt, mpg** (see **Plot 1** in the **Appendix**).  
+2. I built the boxplot of MPG values by transmissions type and found that the MPG of a **manual transmission** significantly higher than the MPG of an **automatic transmission** (see **Plot 2** in the **Appendix**).
 
 
 ### Simple Linear Regression
