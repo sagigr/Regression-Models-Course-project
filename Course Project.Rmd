@@ -82,7 +82,7 @@ Now I'll make some exploratory analysis of the data.
 
 I'll build the scatterplot by using the ```gclus``` package:
 
-```{r applot1, echo=FALSE, message=FALSE}
+```{r applot1, echo=FALSE, message=FALSE, warning=FALSE}
 library(gclus)
 data <- mtcars[c(1:11)] 
 datarows <- abs(cor(data))
@@ -93,12 +93,29 @@ cpairs(data, dorder, panel.colors=datacols, gap=.5, main="mtcars Variables Corre
 
 We can see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**.
 
+Now let's see the MPG difference between **automatic** and **manual** transmissions:
+
 **Plot 2: The Boxplot MPG by Transmission Type** 
 
 ```{r applot2, echo=FALSE, message=FALSE}
 mtcars$am <- as.factor(mtcars$am)
 levels(mtcars$am) <- c("Automatic", "Manual")
-boxplot(mpg ~ am, data = mtcars, col = (c("green","red")), ylab = "MPG", xlab = "Transmission Type")
+boxplot(mpg ~ am, data = mtcars, col = (c("red","green")), ylab = "MPG", xlab = "Transmission Type")
 ```
 
-Here we can see that the MPG of a **manual transmission** significantly higher than the MPG of an **automatic transmission**.
+```{r mpgmeans}
+aggregate(mpg~am, data = mtcars, mean)
+```
+
+Here we can see that the MPG mean of a **manual transmission** higher than the MPG mean of an **automatic transmission** by 7.24 mpgs.  
+To find out whether it's a significant difference, I have to perform a following t-test:
+```{r ttest}
+AutoTrans <- mtcars[mtcars$am == "Automatic",]
+ManualTrans <- mtcars[mtcars$am == "Manual",]
+t.test(AutoTrans$mpg, ManualTrans$mpg)
+```
+
+
+
+
+
