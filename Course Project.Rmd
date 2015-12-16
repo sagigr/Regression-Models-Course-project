@@ -40,6 +40,8 @@ The ```mtcars``` dataset is a data frame with 32 observations on 11 variables.
 
 ### Simple Linear Regression
 
+We see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**. These variables will be used in our regression model.
+
 ### Multiple Regression
 
 * Simple Linear Regression - lm(mpg ~ am, data = mtcars)
@@ -115,6 +117,7 @@ ManualTrans <- mtcars[mtcars$am == "Manual",]
 t.test(AutoTrans$mpg, ManualTrans$mpg)
 ```
 
+The p-value is 0.00137, I can reject the null hypothesis and claim that there is a signficiant difference between the MPG means of manual and automatic transmissions.
 
 
 
