@@ -52,7 +52,10 @@ model2 <- lm(mpg~am + hp + cyl + disp + wt, data = mtcars)
 anova(model1, model2)
 ```
 
-
+```{r res}
+par(mfrow = c(2,2))
+plot(model2)
+```
 
 * Simple Linear Regression - lm(mpg ~ am, data = mtcars)
 * Multiple Regression - lm(mpg ~ wt + qsec + am, data=mtcars)
