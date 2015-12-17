@@ -39,10 +39,20 @@ The ```mtcars``` dataset is a data frame with 32 observations on 11 variables.
 
 
 ### Simple Linear Regression
-
-We see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**. These variables will be used in our regression model.
+There is a simple linear regression for variables mpg and am.
+```{r linregr}
+model1 <-lm(mpg~am, data = mtcars)
+summary(model1)
+```
 
 ### Multiple Regression
+We see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**. These variables will be used in our regression model.
+```{r mregr}
+model2 <- lm(mpg~am + hp + cyl + disp + wt, data = mtcars)
+anova(model1, model2)
+```
+
+
 
 * Simple Linear Regression - lm(mpg ~ am, data = mtcars)
 * Multiple Regression - lm(mpg ~ wt + qsec + am, data=mtcars)
