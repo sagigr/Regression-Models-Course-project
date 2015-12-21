@@ -68,9 +68,6 @@ par(mfrow = c(2,2))
 plot(model2)
 ```
 
-* Simple Linear Regression - lm(mpg ~ am, data = mtcars)
-* Multiple Regression - lm(mpg ~ wt + qsec + am, data=mtcars)
-
 ### Results
 
 ## Conclusions
@@ -108,7 +105,7 @@ Now I'll make some exploratory analysis of the data.
 
 I'll build the scatterplot by using the ```gclus``` package:
 
-```{r applot1, echo=FALSE, message=FALSE, warning=FALSE}
+```{r applot1, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=8}
 library(gclus)
 data <- mtcars[c(1:11)] 
 datarows <- abs(cor(data))
