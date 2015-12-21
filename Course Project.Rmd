@@ -46,12 +46,12 @@ model1 <-lm(mpg~am, data = mtcars)
 summary(model1)
 ```
 
-change it: We can see that the adjusted R squared value is only 0.338 which means that only 33.8% of the regression variance can be explained by our model. However we must not forget there are several other predictor variables that we must take into account to see if any play a bigger role in the model.
-
-NB: We do not gain much more information from our hypothesis test using this model. Interpreting the coefficient and intercepts, we say that, on average, automatic cars have 17.147 MPG and manual transmission cars have 7.245 MPGs more. In addition, we see that the R2 value is 0.3598. This means that our model only explains 35.98% of the variance
+The adjusted R-squared is 0.3385, it means that our model only explains 33.85% of the regression variance.  
+There are several other predictors that should be taken into account to see whether any one of them plays a bigger role in the model.  
+Let's build the multiple regression model.
 
 ### Multiple Regression
-We see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**. These variables will be used in our regression model.
+We see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**. These variables will be used in our multiple regression model.
 ```{r mregr}
 model2 <- lm(mpg~am + hp + cyl + disp + wt, data = mtcars)
 anova(model1, model2)
