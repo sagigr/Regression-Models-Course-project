@@ -61,12 +61,33 @@ NB: With a p-value of 3.745e-09, we reject the null hypothesis and claim that ou
 
 Before we report the details of our model, it is important to check the residuals for any signs of non-normality and examine the residuals vs. fitted values plot to spot for any signs of heteroskedasticity.
 
+Looking at the above results, the p-value obtained is highly significant and we reject the null hypothesis that the confounder variables cyl, hp and wt don’t contribute to the accuracy of the model.
+
+Conclusion Looking at the residual vs fitted graph we can see that our residuals are homosekdastic where they approximately have the sae variance and also we can see they are normally distributed using the quantile plot.
+Furthermore, using the final multivariable regression model put together we can see the multiple R squared value is much higher at 0.855, where 85.5% of the regression variance can be explained by the chosen variables. We can thus conclude that ‘wt’ and ‘cyl’are confounding variables in the relationship between ’am and ’mpg’ and that manual transmission cars on average have 1.55 miles per gallon more than automatic cars.
 
 
 ```{r res, fig.width=10, fig.height=10}
 par(mfrow = c(2,2))
 plot(model2)
 ```
+
+change it: 
+Following observations are made from the above plots…
+
+- The points in the Residuals vs. Fitted plot are randomly scattered on the plot that verifies the independence condition.
+
+- The Normal Q-Q plot consists of the points which mostly fall on the line indicating that the residuals are normally distributed.
+
+- The Scale-Location plot consists of points scattered in a constant band pattern, indicating constant variance.
+
+- There are some distinct points of interest (outliers or leverage points) in the top right of the plots that may indicate values of increased leverage of outliers.
+
+From the above plots, we can make the following observations,
+The points in the Residuals vs. Fitted plot seem to be randomly scattered on the plot and verify the independence condition.
+The Normal Q-Q plot consists of the points which mostly fall on the line indicating that the residuals are normally distributed.
+The Scale-Location plot consists of points scattered in a constant band pattern, indicating constant variance.
+There are some distinct points of interest (outliers or leverage points) in the top right of the plots.
 
 ### Results
 
