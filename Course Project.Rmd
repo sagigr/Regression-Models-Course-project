@@ -63,9 +63,6 @@ Before we report the details of our model, it is important to check the residual
 
 Looking at the above results, the p-value obtained is highly significant and we reject the null hypothesis that the confounder variables cyl, hp and wt don’t contribute to the accuracy of the model.
 
-Conclusion Looking at the residual vs fitted graph we can see that our residuals are homosekdastic where they approximately have the sae variance and also we can see they are normally distributed using the quantile plot.
-Furthermore, using the final multivariable regression model put together we can see the multiple R squared value is much higher at 0.855, where 85.5% of the regression variance can be explained by the chosen variables. We can thus conclude that ‘wt’ and ‘cyl’are confounding variables in the relationship between ’am and ’mpg’ and that manual transmission cars on average have 1.55 miles per gallon more than automatic cars.
-
 
 ```{r res, fig.width=10, fig.height=10}
 par(mfrow = c(2,2))
@@ -92,7 +89,18 @@ There are some distinct points of interest (outliers or leverage points) in the 
 ### Results
 
 ## Conclusions
+Conclusion Looking at the residual vs fitted graph we can see that our residuals are homosekdastic where they approximately have the sae variance and also we can see they are normally distributed using the quantile plot.
+Furthermore, using the final multivariable regression model put together we can see the multiple R squared value is much higher at 0.855, where 85.5% of the regression variance can be explained by the chosen variables. We can thus conclude that ‘wt’ and ‘cyl’are confounding variables in the relationship between ’am and ’mpg’ and that manual transmission cars on average have 1.55 miles per gallon more than automatic cars.
 
+Based on the analysis done in this project, we can conclude that:
+
+- Cars with Manual transmission get 1.8 more miles per gallon compared to cars with Automatic transmission. (1.8 adjusted for hp, cyl, and wt).
+
+- mpg will decrease by 2.5 for every 1000 lb increase in wt.
+
+- mpg decreases negligibly (only 0.32) with every increase of 10 in hp.
+
+- If number of cylinders, cyl increases from 4 to 6 and 8, mpg will decrease by a factor of 3 and 2.2 respectively (adjusted by hp, wt, and am).
 ## Appendix
 
 ### Exploratory Data Analysis
