@@ -1,3 +1,6 @@
+---
+output: pdf_document
+---
 
 ## Regression Models: Course Project
 
@@ -8,26 +11,12 @@
 ## Executive Summary
 
 The Motor Trend magazine staff is interested in exploring the relationship between a **set of variables** at a data set of a collection of cars and a **miles per gallon (MPG) (outcome)**.  
-They are especially interested in the answers to the following questions:
-
+They are especially interested in the answers to the following questions:  
 1. Is an automatic or manual transmission better for MPG?  
-2. How significant MPG difference between automatic and manual transmissions?
-
-This report is based on the ```mtcars``` dataset and after the following data analysis, I can do these conclusions:
-
-
-Brief. 
-Roughly the equivalent of 2 pages or less for the main text. 
-Supporting figures in an appendix can be included up to 5 total pages including the 2 for the main report. 
-The appendix can only include figures.
-Include a first paragraph executive summary.
-
-Did the student interpret the coefficients correctly?
-Did the student do some exploratory data analyses?
-Did the student fit multiple models and detail their strategy for model selection?
-Did the student answer the questions of interest or detail why the question(s) is (are) not answerable?
-Did the student do a residual plot and some diagnostics?
-Did the student quantify the uncertainty in their conclusions and/or perform an inference correctly?
+2. How significant MPG difference between automatic and manual transmissions?  
+This report is based on the ```mtcars``` dataset and after the following data analysis, I can do these conclusions:  
+1. The manual transmission is better for MPG than the automatic.  
+2. There is a signficiant difference between the MPG means of manual and automatic transmissions. In terms of MPG means, the difference between the two types of transmission is 7.24 mpgs (in favor of the manual transmission). On average, manual transmission has 1.55 mpgs more than automatic transmission.
 
 ## Data Analysis
 
@@ -54,79 +43,41 @@ Let's build the multiple regression model.
 We see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**. These variables will be used in our multiple regression model.
 ```{r mregr}
 model2 <- lm(mpg~am + hp + cyl + disp + wt, data = mtcars)
+summary(model2)
 anova(model1, model2)
 ```
 
-NB: With a p-value of 3.745e-09, we reject the null hypothesis and claim that our multivariate model is significantly different from our simple model.
+Based on the p-value, I can reject the null hypothesis and claim that the multiple model is significantly different from the simple model.  
+Let's check the residuals for any signs of non-normality and examine the residuals versus fitted values plot for any signs of heteroskedasticity.
 
-Before we report the details of our model, it is important to check the residuals for any signs of non-normality and examine the residuals vs. fitted values plot to spot for any signs of heteroskedasticity.
-
-Looking at the above results, the p-value obtained is highly significant and we reject the null hypothesis that the confounder variables cyl, hp and wt don’t contribute to the accuracy of the model.
-
-
-```{r res, fig.width=10, fig.height=10}
+```{r res, fig.width=6, fig.height=6}
 par(mfrow = c(2,2))
 plot(model2)
 ```
-
-change it: 
-Following observations are made from the above plots…
-
-- The points in the Residuals vs. Fitted plot are randomly scattered on the plot that verifies the independence condition.
-
-- The Normal Q-Q plot consists of the points which mostly fall on the line indicating that the residuals are normally distributed.
-
-- The Scale-Location plot consists of points scattered in a constant band pattern, indicating constant variance.
-
-- There are some distinct points of interest (outliers or leverage points) in the top right of the plots that may indicate values of increased leverage of outliers.
-
-From the above plots, we can make the following observations,
-The points in the Residuals vs. Fitted plot seem to be randomly scattered on the plot and verify the independence condition.
-The Normal Q-Q plot consists of the points which mostly fall on the line indicating that the residuals are normally distributed.
-The Scale-Location plot consists of points scattered in a constant band pattern, indicating constant variance.
-There are some distinct points of interest (outliers or leverage points) in the top right of the plots.
-
-### Results
+  
+**Residuals vs. Fitted**: the points are randomly scattered on the plot that indicates on the independence condition.  
+**Normal Q-Q**: the points mostly fall on the line, and it indicates the normal distribution of the residuals.  
+**Scale-Location**: the points scattered in a constant band pattern, and it that indicates the constant variance.  
+**Residuals vs Leverage**: there are points in the top of the plot that may indicate values of increased leverage of outliers.
 
 ## Conclusions
-Conclusion Looking at the residual vs fitted graph we can see that our residuals are homosekdastic where they approximately have the sae variance and also we can see they are normally distributed using the quantile plot.
-Furthermore, using the final multivariable regression model put together we can see the multiple R squared value is much higher at 0.855, where 85.5% of the regression variance can be explained by the chosen variables. We can thus conclude that ‘wt’ and ‘cyl’are confounding variables in the relationship between ’am and ’mpg’ and that manual transmission cars on average have 1.55 miles per gallon more than automatic cars.
+- The residuals are homoscedastic and normally distributed.  
+- By the multiple regression model I can see that the multiple R-squared value is 0.855, i.e. 85.5% of the regression variance can be explained by the chosen variables. I can conclude that these variables are confounding in the relationship between the **am** and **mpg*.  
+- The manual transmission is better for MPG than the automatic.  
+- There is a signficiant difference between the MPG means of manual and automatic transmissions: on average, manual transmission has 1.55 mpgs more than automatic transmission.  
 
-Based on the analysis done in this project, we can conclude that:
 
-- Cars with Manual transmission get 1.8 more miles per gallon compared to cars with Automatic transmission. (1.8 adjusted for hp, cyl, and wt).
-
-- mpg will decrease by 2.5 for every 1000 lb increase in wt.
-
-- mpg decreases negligibly (only 0.32) with every increase of 10 in hp.
-
-- If number of cylinders, cyl increases from 4 to 6 and 8, mpg will decrease by a factor of 3 and 2.2 respectively (adjusted by hp, wt, and am).
 ## Appendix
 
 ### Exploratory Data Analysis
 
 #### The ```mtcars``` dataset
-The data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
-Source: Henderson and Velleman (1981), Building multiple regression models interactively. Biometrics, 37, 391–411.  
-
+The data frame with 32 observations on 11 variables (see the [description](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html)).  
 There is a some view on the data:
 
 ```{r viewdata}
 head(mtcars)
 ```
-
-The data frame with 32 observations on 11 variables.  
-[, 1]	mpg	Miles/(US) gallon  
-[, 2]	cyl	Number of cylinders  
-[, 3]	disp	Displacement (cu.in.)  
-[, 4]	hp	Gross horsepower  
-[, 5]	drat	Rear axle ratio  
-[, 6]	wt	Weight (lb/1000)  
-[, 7]	qsec	1/4 mile time  
-[, 8]	vs	V/S  
-[, 9]	am	Transmission (0 = automatic, 1 = manual)  
-[,10]	gear	Number of forward gears  
-[,11]	carb	Number of carburetors  
 
 Now I'll make some exploratory analysis of the data.
 
@@ -134,7 +85,7 @@ Now I'll make some exploratory analysis of the data.
 
 I'll build the scatterplot by using the ```gclus``` package:
 
-```{r applot1, echo=FALSE, message=FALSE, warning=FALSE, fig.width=8, fig.height=8}
+```{r applot1, echo=FALSE, message=FALSE, warning=FALSE, fig.width=6, fig.height=6}
 library(gclus)
 data <- mtcars[c(1:11)] 
 datarows <- abs(cor(data))
@@ -143,13 +94,12 @@ dorder <- order.single(datarows)
 cpairs(data, dorder, panel.colors=datacols, gap=.5, main="mtcars Variables Correlations" )
 ```
 
-We can see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**.
-
+We can see that the strongest correlations exist between the variables **hp, cyl, disp, wt, mpg**.  
 Now let's see the MPG difference between **automatic** and **manual** transmissions:
 
 **Plot 2: The Boxplot MPG by Transmission Type** 
 
-```{r applot2, echo=FALSE, message=FALSE}
+```{r applot2, echo=FALSE, message=FALSE, fig.width=5, fig.height=5}
 mtcars$am <- as.factor(mtcars$am)
 levels(mtcars$am) <- c("Automatic", "Manual")
 boxplot(mpg ~ am, data = mtcars, col = (c("red","green")), ylab = "MPG", xlab = "Transmission Type")
@@ -168,7 +118,3 @@ t.test(AutoTrans$mpg, ManualTrans$mpg)
 ```
 
 The p-value is 0.00137, I can reject the null hypothesis and claim that there is a signficiant difference between the MPG means of manual and automatic transmissions.
-
-
-
-
